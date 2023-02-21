@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Webgentle.BookStore/Webgentle.BookStore/obj
+/Webgentle.BookStore/.vs/Webgentle.BookStore/v16
+/.vs/AspDotNetCoreMvc3/v16
+/.vs
+/Webgentle.BookStore/.vs/Webgentle.BookStore/config

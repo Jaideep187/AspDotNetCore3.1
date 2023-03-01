@@ -1,8 +1,4 @@
-﻿@using Webgentle.BookStore.Models;
-@model BookModel
-@{
-    Layout = "_Layout";
-}
+﻿@model BookModel
 
 <div class="container">
     <h3 class="display-4">Book details</h3>
@@ -77,7 +73,7 @@
 
     <hr />
 
-    <div class="py-5 bg-light">
+    <div class="py-5 bg-light"  id="similarBooks">
         <h3 class="h3">Similar books</h3>
         <div class="row">
             @for (int i = 0; i < 5; i++)

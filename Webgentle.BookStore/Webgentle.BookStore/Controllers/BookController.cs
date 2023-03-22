@@ -12,9 +12,9 @@ namespace Webgentle.BookStore.Controllers
     {
         private readonly BookRepository _bookRepository = null;
 
-        public BookController()
+        public BookController(BookRepository bookRepository)
         {
-            _bookRepository = new BookRepository();
+            _bookRepository = bookRepository;
         }
 
         public ViewResult GetAllBooks()
@@ -34,14 +34,21 @@ namespace Webgentle.BookStore.Controllers
         {
             return _bookRepository.SearchBook(bookName, authorName);
         }
-        public ViewResult AddNewBook()
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            ViewBag.IsSuccess = isSuccess;
+            ViewBag.BookId = bookId;
             return View();
         }
 
         [HttpPost]
-        public ViewResult AddNewBook(BookModel bookModel)
+        public async Task<IActionResult> AddNewBook(BookModel bookModel)
         {
+            int id = await _bookRepository.AddNewBook(bookModel);
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
+            }
             return View();
         }
     }

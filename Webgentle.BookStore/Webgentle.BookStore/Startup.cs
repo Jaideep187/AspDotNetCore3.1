@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Webgentle.BookStore.Data;
+using Webgentle.BookStore.Repository;
 
 namespace Webgentle.BookStore
 {
@@ -28,6 +29,7 @@ namespace Webgentle.BookStore
                 options => options.UseSqlServer("Server=.;Database=BookStore;Integrated Security=True;"));
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddScoped<BookRepository, BookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
